@@ -442,3 +442,94 @@ other
 
 ## [案例源码请戳这里](https://github.com/slailcp/vue-tv-focusable-example)
 
+
+# 常见问题 
+## 如何控制滚动速度
+当遥控器按键一直按着不松手，默认请情况下会滚动很快，想要控制滚动速度，这个时候可以设置scrollSpeed来控制滚动速度，scrollSpeed是以毫秒为单位，越大滚动越慢
+```js
+$tv.scrollSpeedX = 200; // 不设置的话，默认为0
+$tv.scrollSpeedY = 500; // 不设置的话，默认为0
+
+当水平和垂直方向速度一样的时候，可以这么设置
+$tv.scrollSpeed = 200;
+```
+**注：当页面上的容器非常多的时候（几万个），长按上下左右键的时候会卡顿，这个时候将scrollSpeed 设置 合适的值会解决卡文问题；**
+
+## 如何阻止焦点移动
+当遥控器按下上下左右键的时候，事件会有一个event.target参数.这个event.target就是自身的意思。可以调用$tv.requestFocus(event.target);方法，只能固定在自身
+```js
+<div v-focusable class="div_item" @down="testDown($event)" >a</div>
+<div v-focusable class="div_item" @down="testDown($event)" >b</div>
+testDown(event){ // 按下键盘阻止焦点移动，各事件同理
+    proxy.$tv.requestFocus(event.target); 
+};
+```
+## 监听返回键问题
+可以看下这篇文章：[移动端网页监听返回键](https://blog.csdn.net/Aislli/article/details/81178562)
+
+## uniapp开发相关问题
+uni-app 在非 h5 端开发时，会去掉浏览器自带的一些对象,所以需要先将项目打包成h5，然后再将h5转成apk才行，否则会报错，参考链接如下：                     
+[在uni-app里使用tv-focusable打包apk时报错如何解决](https://blog.csdn.net/sllailcp/article/details/119939974)
+[h5打包成apk](https://blog.csdn.net/sllailcp/article/details/118397743)
+
+## 返回上一页，记录上一个页面已经聚焦的容器
+可以使用$tv.readXPath(focusableEl);获取当前聚焦的el的xpath路径,如下：
+```js
+// 跳转页面的时候调用下面的方法保存当前焦点。
+var xpathstr = this.$tv.readXPath(document.querySelector("[focused]"));
+sessionStorage.setItem('xpath',xpathstr)
+
+// 结果是类似  '//*[@id="app"]/div[2]/div[1]/div[2]/div[1]/div[31]'  的字符串，返回到上一个页面，可以使用requestFocus获取焦点
+ this.$tv.requestFocus(this.$tv.getElementByPath(sessionStorage.getItem('xpath')))
+```
+**此处只是提供一个思路，如果你有更好的解决方案可以忽略；**
+
+
+# 版本升级日志
+
+## 2020-12-18 1.0.4更新日志：
+当一直按键不抬起时，控制每一次焦点的获取时间，从而达到控制滚屏速度
+
+## 2021-10-28 1.0.3更新日志：
+1、禁止隐藏元素聚焦；
+2、开放滚动动画执行时间自定义，默认 200ms；
+3、开放滚动动画循环的次数，默认 20次(注意:数值越小越耗性能)； 
+4、优化其它不影响使用的小逻辑；
+
+## 2021-09-27 1.0.2更新日志：
+修复 vue3.x 延时加载元素的情况下，自定义事件不触发的问题；
+
+## 2021-09-10 1.0.1更新日志：
+1、防止和三方 UI 库类命名冲突，导出自定义 itemAttrname；
+2、优化聚焦逻辑，禁止 svg 元素聚焦；
+3、禁止焦点嵌套情况，父子元素同时设置可聚焦时只允许父元素聚焦；
+
+## 2021-07-24 1.0.0更新日志：
+1、优化对 angular 的支持；
+2、稳定版本。
+
+## 2021-07-24 0.0.6更新日志：
+1、增加 formAutofocus 配置指定表单是否可执行原生聚焦（输入状态）；
+2、开放 focusableClassName 的配置（原则上是开放给react用的），如果不明白这个是做什么用的，说明你不需要用到这个；
+
+## 2021-07-16 0.0.5更新日志：
+增加 readXPath 接口，便于读取目标元素的 xpath 路径，可用于需要序列化标签存储的场景；
+
+## 2021-04-09 0.0.4更新日志：
+1、增加 init 属性的独立配置项，可单独设置某个属性值；
+2、增加 limitingEl 逻辑，可限制页面上只有某个容器内的元素可聚焦；
+
+## 2020-12-24 0.0.3更新日志：
+1、增加滚动 center 模式，通过 distanceToCenter 控制；
+2、优化聚焦算法；
+
+## 2020-12-11 0.0.2更新日志：
+增加 TV 端长按事件的支持；
+
+## 2020-12-09  0.0.1更新日志：
+第一次发版.
+
+
+
+
+
