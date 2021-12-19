@@ -15,11 +15,27 @@
     <link rel="stylesheet" href="./css/editormd.preview.css" />
     <link rel="shortcut icon" href="./image/favicon.ico.jpg" type="image/x-icon" />
     <style>
-
+        .bg {
+            background: url(./image/load-bg.png);
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99;
+        }
     </style>
 </head>
 
 <body>
+    <div class="bg">
+        <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F0138ff5fa50f0611013fdcc7c8e108.gif&refer=http%3A%2F%2Fimg.zcool.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1642494649&t=0fec5b3d80ba7cd6842908cf24336d03"
+            alt="" srcset="">
+
+    </div>
     <div id="layout">
 
         <div class="nav">
@@ -62,11 +78,11 @@
         $(function () {
             var testEditormdView, testEditormdView2;
             var type = getUrlParam('type') || 'vue-tv-focusable'
-            getdata("./md/"+(type)+".md")
+            getdata("./md/" + (type) + ".md")
             $('#changedocument').val(type)
-            
+
             $('#changedocument').change(function (e) {
-                location.href = location.origin + '?type='+ $(this).val()
+                location.href = location.origin + '?type=' + $(this).val()
             })
 
             function getdata(url) {
@@ -81,6 +97,7 @@
                         flowChart: true,  // 默认不解析
                         sequenceDiagram: true,  // 默认不解析
                     });
+                    $('.bg').hide();
                 });
             }
 

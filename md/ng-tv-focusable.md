@@ -436,7 +436,7 @@ testDown(event){ // 按下键盘阻止焦点移动，各事件同理
 可以使用$tv.readXPath(focusableEl);获取当前聚焦的el的xpath路径,如下：
 ```js
 // 跳转页面的时候调用下面的方法保存当前焦点。
-var xpathstr = this.$tv.readXPath(document.querySelector("[focused]"));
+var xpathstr = $tv.readXPath(document.querySelector("[focused]"));
 sessionStorage.setItem('xpath',xpathstr)
 
 // 结果是类似  '//*[@id="app"]/div[2]/div[1]/div[2]/div[1]/div[31]'  的字符串，返回到上一个页面，可以使用requestFocus获取焦点
