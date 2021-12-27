@@ -445,7 +445,7 @@ sessionStorage.setItem('xpath',xpathstr)
 **此处只是提供一个思路，如果你有更好的解决方案可以忽略；**
 
 ## 如果你还有问题，可加入群聊交流讨论
-Q群 377202993  备注: tv   
+Q群 377202993  备注: focusable 
 
 
 # 版本升级日志
