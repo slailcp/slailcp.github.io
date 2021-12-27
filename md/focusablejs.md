@@ -397,7 +397,7 @@ other
 请查阅[vue-tv-focusable文档](https://slailcp.github.io/?type=vue-tv-focusable)
 
 ## 如果你还有问题，可加入群聊交流讨论
-Q群 377202993  备注: tv   
+Q群 377202993  备注: focusable   
 
 
 # 版本升级日志
