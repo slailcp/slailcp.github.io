@@ -444,34 +444,7 @@ sessionStorage.setItem('xpath',xpathstr)
 ```
 **此处只是提供一个思路，如果你有更好的解决方案可以忽略；**
 
-## keepalive 返回缓存的页面,调用requestFocus 无效 解决方案
-先去掉页面上已经聚焦的focused,然后再调用requestFocus; 如下(**此处只是提供一个思路，如果你有更好的解决方案可以忽略；**):
-```js
-  beforeRouteLeave(to, from, next) {
-    if(!document.querySelector("[focused]")) return;
-    sessionStorage.setItem(
-      "focusXpath",
-      this.$tv.readXPath(document.querySelector("[focused]"))
-    );
 
-    // 去掉焦点,如果requestFocus(el)的这个el上存在焦点,则不会再次触发requestFocus
-    document.querySelector("[focused]").removeAttribute("focused");
-    next();
-  },
-  activated() {
-    this.$nextTick(() => {
-      this.$tv.distanceToCenter = true;
-      this.$tv.scrollEl = document.querySelector(".wraper");
-
-      // 设置焦点
-      const focusXpath = sessionStorage.getItem("focusXpath");
-      if (focusXpath && this.$tv.getElementByPath(focusXpath)) {
-        this.$tv.requestFocus(this.$tv.getElementByPath(focusXpath),false); 
-        sessionStorage.removeItem("focusXpath")
-      }
-    });
-  },
-```
 
 ## 如果你还有问题，可加入群聊交流讨论
 Q群 377202993  备注: focusable 
