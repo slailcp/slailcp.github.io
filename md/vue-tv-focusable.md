@@ -444,6 +444,9 @@ other
 
 
 # 常见问题 
+## vite 报错 define is not defined
+1.0.7以及以上版本兼容vite
+
 ## 如何控制滚动速度
 当遥控器按键一直按着不松手，默认请情况下会滚动很快，想要控制滚动速度，这个时候可以设置scrollSpeed来控制滚动速度，scrollSpeed是以毫秒为单位，越大滚动越慢
 ```js
