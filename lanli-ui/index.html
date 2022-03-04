@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>index</title>
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+  <div class="page-container">
+    <div class="header">
+      <img class="logo" src="../image/lanli-ui/logo.png" alt="" srcset="">
+    </div>
+    <div class="container">
+      <div class="menu">
+        <div class="menu-item" onclick="tab('popup')">Pupop</div>
+        <div class="menu-item active" onclick="tab('layer')">layer/Dialog</div>
+        <div class="menu-item" onclick="tab('toast')">Toast</div>
+        <div class="menu-item" onclick="tab('icons')">Icons</div>
+      </div>
+      <div class="content">
+        <!----md-->
+        <iframe id="md" width="100%" src=""></iframe>
+
+      </div>
+      <div class="frame">
+        <!----mobile-->
+        <div class="mobile">
+          <iframe id="ex" src="./example/layer.html"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  tab('layer')
+
+  function tab(type) {
+    var mdurl = "./document/index.html?type=" + type + "&v=" + Date.now();
+    var exurl = "./example/"+type+".html?v=" + Date.now();
+    var md = document.getElementById("md")
+    var ex = document.getElementById("ex")
+    md.src = mdurl;
+    ex.src = exurl;
+  }
+</script>
+
+</html>

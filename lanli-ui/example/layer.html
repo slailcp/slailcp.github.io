@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../js/lanli-ui-new.css">
+  <script src="https://unpkg.com/vue@3.2.31/dist/vue.global.js"></script>
+  <script src="../js/lanli-ui-new.umd.js"></script>
+  <style>
+    .btn {
+      background-color: #2dc3e8;
+      color: #fff;
+      padding: 8px 15px;
+      font-size: 14px;
+      border-radius: 4px;
+      border: 0;
+      cursor: pointer;
+      margin: 0 10px 10px 0;
+    }
+  </style>
+</head>
+
+<body style="text-align: center;">
+  <div id="app"></div>
+</body>
+<script>
+
+  Vue.createApp({
+    template: `
+      <button class="btn" @click="open1('center')">普通使用</button><br />
+      <button class="btn" @click="open2()">按钮阻止关闭</button><br />
+      <button class="btn" @click="open3()">按钮异步</button><br />
+    `,
+    data() {
+      return {}
+    },
+    methods: {
+      open1() { this.$layer({ message: "你个大傻子" }) },
+      open2() {
+        this.$layer.confirm({
+          title: "警告!!!",
+          message: "<span style='color:orange'>真的要删除吗?</span>",
+          className: "app-home-confirm",
+          allowHtml: true,
+          lockScroll: true,
+          beforeClose: (action) => {
+            if (action === "confirm") { return false; } // 点击确认按钮的时候,阻止弹出层关闭
+          },
+          cancelButtonText: "取消",
+          confirmButtonText: "点错了啊",
+        })
+          .then((ret) => {
+            console.log(ret); // 点击确定按钮
+          })
+          .catch((ret) => {
+            console.log(ret); // 点击取消按钮
+          });
+      },
+      open3() {
+        this.$layer.confirm({
+            message: "真的要删除吗?",
+            beforeClose: (action) => {
+                // 返回Promise
+                return new Promise((resolve) => {
+                setTimeout(() => {
+                    if (action === "confirm") {
+                    resolve(true);
+                    } else {
+                    resolve(false);
+                    }
+                }, 1000);
+                });
+            }
+        })
+      },
+    }
+  })
+    .use(lanliUiNew.Layer)
+    .mount('#app')
+
+</script>
+
+</html>

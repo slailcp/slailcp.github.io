@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../js/lanli-ui-new.css">
+  <script src="https://unpkg.com/vue@3.2.31/dist/vue.global.js"></script>
+  <script src="../js/lanli-ui-new.umd.js"></script>
+  <style>
+    .icon{width:20px;height:20px;margin-right:20px;}
+  </style>
+</head>
+
+<body style="padding:20px;">
+  <div id="app"></div>
+</body>
+<script>
+
+  Vue.createApp({
+    template: `
+    <lan-icon-select  class="icon"/>
+    <lan-icon-close-bold  class="icon"/>
+    `,
+    data() {
+      return {
+      }
+    },
+    methods: {
+      open1() { this.toggle1 = true; },
+      open2(type) {
+       
+        
+      },
+
+    }
+  })
+    .use(lanliUiNew.Icons)
+    .mount('#app')
+
+</script>
+
+</html>
