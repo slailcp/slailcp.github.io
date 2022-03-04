@@ -36,21 +36,21 @@
       <button class="btn" @click="open2('left')">left</button><br />
       <button class="btn" @click="open2('right')">right</button><br />
       {{position}}
-      <lan-popup v-model:show="toggle1"> 
-          <h1>你是个大傻子</h1>
+      <lan-popup v-model:show="toggle1" style="width:70%;height:70%"> 
+          <div ><h4>你是个大傻子</h4></div>
       </lan-popup>
       
       <lan-popup v-model:show="toggle2" position="down"> 
-          <h1>你是个大傻子</h1>
+          <h4>你是个大傻子</h4>
       </lan-popup>
       <lan-popup v-model:show="toggle3" position="up"> 
-          <h1>你是个大傻子</h1>
+          <h4>你是个大傻子</h4>
       </lan-popup>
       <lan-popup v-model:show="toggle4" position="left"> 
-          <h1>你是个大傻子</h1>
+          <h4>你是个大傻子</h4>
       </lan-popup>
       <lan-popup v-model:show="toggle5" position="right"> 
-          <h1>你是个大傻子</h1>
+          <h4>你是个大傻子</h4>
       </lan-popup>
     `,
     data() {
