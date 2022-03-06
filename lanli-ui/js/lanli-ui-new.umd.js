@@ -4,7 +4,7 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["lanliUiNew"] = factory(require("vue"));
+		exports["lanli-ui-new"] = factory(require("vue"));
 	else
 		root["lanliUiNew"] = factory(root["Vue"]);
 })((typeof self !== 'undefined' ? self : this), function(__WEBPACK_EXTERNAL_MODULE__8bbf__) {
@@ -5064,7 +5064,7 @@ var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
     var position = props.position,
         transition = props.transition,
         transitionAppear = props.transitionAppear;
-    var name = position === 'center' || position === '' ? 'lan-fade' : "lan-slide-".concat(position);
+    var name = position === 'center' || position === '' ? 'lan-fade' : "lan-slide-".concat(position === 'down' ? 'up' : position === 'up' ? 'down' : position);
 
     var renderTransition = function renderTransition() {
       return Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])(external_commonjs_vue_commonjs2_vue_root_Vue_["Transition"], {
