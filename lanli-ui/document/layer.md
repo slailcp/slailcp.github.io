@@ -18,7 +18,7 @@ import { Layer } from 'lanli-ui';
 ...
 setup(){
     const fn1 = () => {
-        Layer({message:"你个大傻子"}) // Layer.alert({message:"你个大傻子"})
+        Layer({message:"你好"}) // Layer.alert({message:"你好"})
     }
 
     const fn2 = () => {

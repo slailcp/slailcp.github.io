@@ -12,7 +12,7 @@ app.use(Popup);
 ## 按需引用
 ```html
 <lan-popup v-model:show="toggle" :position="position"> 
-    <h1>你是个大傻子</h1>
+    <h1>你好</h1>
 </lan-popup>
 <script lang="ts">
 import { Popup } from 'lanli-ui';
@@ -25,7 +25,7 @@ setup(){}
 ## 演示
 ```html
 <lan-popup v-model:show="toggle" :position="position"> 
-    <h1>你是个大傻子</h1>
+    <h1>你好</h1>
 </lan-popup>
 
 <script lang="ts">

@@ -31,7 +31,7 @@ setup(){
     const fn3 = () => {
         Toast({
             type:"success"
-            message:"你的校验不通过哦",
+            message:"执行成功！",
             duration: 5000
         })
     }
@@ -39,7 +39,7 @@ setup(){
     const fn4 = () => {
         Toast({
             type:"loading"
-            message:"数据正咋加载中"
+            message:"数据正在加载中"
         })
     }
 
