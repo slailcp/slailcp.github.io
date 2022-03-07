@@ -104,7 +104,10 @@ setup(){}
 |className|类名字|string|""|
 
 
-
+## event
+|参数|说明|默认值|
+|--|--|--|--|
+|choose|选择日期|null|
 
 
 
