@@ -95,7 +95,7 @@ setup(){}
 |--|--|--|--|
 |show|展示|boolean|false|
 |minDate|最小日期|string|today|
-|maxDate|最大日期|string|从来他起,往后一个月|
+|maxDate|最大日期|string|从今天起,往后一个月|
 |isShowSectionBg|选择区间是否显示背景色|boolean|true|
 |style|弹出层的样式|object|{}|
 |monthFormatter|月份的格式化方式|string|YYYY年MM月|
