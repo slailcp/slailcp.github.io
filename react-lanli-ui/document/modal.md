@@ -32,7 +32,7 @@ import {Modal} from 'react-lanli-ui'
             return new Promise((resolve, reject) => {
               setTimeout(() => {
                 resolve(false)
-              }, 2000)
+              }, 500)
             })
           }
         }
