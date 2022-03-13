@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ICON</title>
+  <link rel="stylesheet" href="../js/umi.css">
+  <script src="../reactjs/react.development.js"></script>
+  <script src="../reactjs/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  <script src="../reactjs/prop-types.js"></script>
+  <script src="../js/umi.js"></script>
+  <style>
+    .icon-box {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .icon-span {
+      width: 25%;
+      padding: 10px 0;
+      font-size: 12px;
+      text-align: center;
+      box-shadow: 0 0 1px #bdd0f5;
+      box-sizing: border-box;
+    }
+
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+  </style>
+</head>
+
+<body style="padding:20px;">
+  <div id="app"></div>
+</body>
+<script type="text/babel">
+  var lanliUiNew = window.LanLIUI
+  class App extends React.Component {
+       render() {
+      return (
+        <div className="icon-box">
+          <span className="icon-span"><lanliUiNew.IconArrowDown /><br />IconArrowDown</span>
+          <span className="icon-span"><lanliUiNew.IconArrowDownBold /><br />IconArrowDownBold</span>
+          <span className="icon-span"><lanliUiNew.IconArrowLeft /><br />IconArrowLeft</span>
+          <span className="icon-span"><lanliUiNew.IconArrowLeftBold /><br />IconArrowLeftBold</span>
+          <span className="icon-span"><lanliUiNew.IconArrowRight /><br />IconArrowRight</span>
+          <span className="icon-span"><lanliUiNew.IconArrowRightBold /><br />IconArrowRightBold</span>
+          <span className="icon-span"><lanliUiNew.IconArrowUp /><br />IconArrowUp</span>
+          <span className="icon-span"><lanliUiNew.IconArrowUpBold /><br />IconArrowUpBold</span>
+          <span className="icon-span"><lanliUiNew.IconBack /><br />IconBack</span>
+          <span className="icon-span"><lanliUiNew.IconBottom /><br />IconBottom</span>
+          <span className="icon-span"><lanliUiNew.IconCircle /><br />IconCircle</span>
+          <span className="icon-span"><lanliUiNew.IconCircleCheck /><br />IconCircleCheck</span>
+          <span className="icon-span"><lanliUiNew.IconCircleCheckFilled /><br />IconCircleCheckFilled</span>
+          <span className="icon-span"><lanliUiNew.IconCircleClose /><br />IconCircleClose</span>
+          <span className="icon-span"><lanliUiNew.IconCircleCloseFilled /><br />IconCircleCloseFilled</span>
+          <span className="icon-span"><lanliUiNew.IconCirclePlus /><br />IconCirclePlus</span>
+          <span className="icon-span"><lanliUiNew.IconCirclePlusFilled /><br />IconCirclePlusFilled</span>
+          <span className="icon-span"><lanliUiNew.IconClose /><br />IconClose</span>
+          <span className="icon-span"><lanliUiNew.IconCloseBold /><br />IconCloseBold</span>
+          <span className="icon-span"><lanliUiNew.IconMinus /><br />IconMinus</span>
+          <span className="icon-span"><lanliUiNew.IconPlus /><br />IconPlus</span>
+          <span className="icon-span"><lanliUiNew.IconRemove /><br />IconRemove</span>
+          <span className="icon-span"><lanliUiNew.IconRemoveFilled /><br />IconRemoveFilled</span>
+          <span className="icon-span"><lanliUiNew.IconSelect /><br />IconSelect</span>
+          <span className="icon-span"><lanliUiNew.IconTop /><br />IconTop</span>
+          <span className="icon-span"><lanliUiNew.IconWarning /><br />IconWarning</span>
+          <span className="icon-span"><lanliUiNew.IconWarningFilled /><br />IconWarningFilled</span>
+          <span className="icon-span"><lanliUiNew.IcontrigBottom /><br />IcontrigBottom</span>
+          <span className="icon-span"><lanliUiNew.IcontrigLeft /><br />IcontrigLeft</span>
+          <span className="icon-span"><lanliUiNew.IcontrigRight /><br />IcontrigRight</span>
+          <span className="icon-span"><lanliUiNew.IcontrigTop /><br />IcontrigTop</span>
+        </div>
+      )
+    }
+  }
+
+  ReactDOM.render(<App />, document.getElementById('app'));
+</script>
+
+</html>

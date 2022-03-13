@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modal</title>
+  <link rel="stylesheet" href="../js/umi.css">
+  <script src="../reactjs/react.development.js"></script>
+  <script src="../reactjs/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  <script src="../reactjs/prop-types.js"></script>
+  <script src="../js/umi.js"></script>
+  <style>
+    .btn {
+      background-color: #2dc3e8;
+      color: #fff;
+      padding: 8px 15px;
+      font-size: 14px;
+      border-radius: 4px;
+      border: 0;
+      cursor: pointer;
+      margin: 0 10px 10px 0;
+    }
+  </style>
+</head>
+
+<body style="text-align: center;padding-top:20px;">
+  <div id="app"></div>
+</body>
+<script type="text/babel">
+  var lanliUiNew = window.LanLIUI
+  class App extends React.Component {
+
+    open1() {
+      lanliUiNew.Modal.alert({ message: "你好" })
+    }
+    open2() {
+      lanliUiNew.Modal.confirm({
+        title: "小提示",
+        message: "你好",
+        beforeClose: (type) => {
+          if (type === 'cancel') {
+            return false;
+          }
+        }
+      }).then((ret) => {
+        console.log(ret);
+      }).catch((ret) => {
+        console.log(ret);
+      })
+    }
+    open3() {
+      lanliUiNew.Modal.confirm({
+        title: "小提示",
+        message: "你好",
+        beforeClose: (type) => {
+          if (type === 'cancel') {
+            return new Promise((resolve, reject) => {
+              setTimeout(() => {
+                resolve(false)
+              }, 2000)
+            })
+          }
+        }
+      }).then((ret) => {
+        console.log(ret);
+      }).catch((ret) => {
+        console.log(ret);
+      })
+    }
+    render() {
+      return (
+        <div>
+          <button className="btn" onClick={() => { this.open1('center') }}>普通使用</button><br />
+          <button className="btn" onClick={() => { this.open2() }} > 按钮阻止关闭</button ><br />
+          <button className="btn" onClick={() => { this.open3() }} > 按钮异步</button > <br />
+        </div >
+      )
+    }
+  }
+
+  ReactDOM.render(<App />, document.getElementById('app'));
+</script>
+
+</html>
