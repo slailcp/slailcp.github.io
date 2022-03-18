@@ -2,13 +2,14 @@
 ### 简介
 tv-focusable 是适用于在 TV 端进行网页开发时管理焦点移动的框架，以简洁的 Api 让前端网页开发就像 android 开发一样自动管理焦点。
 
-**[ng-tv-focusable中文文档](https://blog.csdn.net/sllailcp/article/details/109445268)**
-**[react-tv-focusable中文文档](https://blog.csdn.net/sllailcp/article/details/109444532)**
-
 ### 安装
 ```
 npm i vue-tv-focusable
 ```
+
+### [案例展示](https://slailcp.github.io/focusable/example/index.html)
+[案例展示](https://slailcp.github.io/focusable/example/index.html)
+
 
 **效果示例**
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20201016100758392.gif#pic_center)

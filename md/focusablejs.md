@@ -6,6 +6,11 @@ tv-focusable 是适用于在 TV 端进行网页开发时管理焦点移动的框
 ### 下载
 下载[focusable.js](https://github.com/slailcp/tv-focusable-example/blob/master/js-focusable-example/js/tv-focusable.js)文件
 
+
+### [案例展示](https://slailcp.github.io/focusable/example/index.html)
+[案例展示](https://slailcp.github.io/focusable/example/index.html)
+
+
 ### 注意:
 uni-app项目打包成APP端的时候,由于uni-app不支持window,Event等,所以打包的时候会出现Cannot read property 'CustomEvent' of undefined等报错                            
 **解决方法**:可以使用uni-app将项目打包成h5,然后使用hbuilder将h5项目转成APP,这样就可以啦!     

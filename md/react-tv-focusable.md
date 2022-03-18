@@ -9,6 +9,11 @@ react-tv-focusable 是适用于在 TV 端进行网页开发时管理焦点移动
 ```
 npm i -S react-tv-focusable          
 ```
+
+### [案例展示](https://slailcp.github.io/focusable/example/index.html)
+[案例展示](https://slailcp.github.io/focusable/example/index.html)
+
+
 # 使用
 
 ```js

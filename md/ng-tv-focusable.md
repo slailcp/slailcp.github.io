@@ -8,6 +8,10 @@ tv-focusable 是适用于在 TV 端进行网页开发时管理焦点移动的框
 npm i ng-tv-focusable
 ```
 
+### [案例展示](https://slailcp.github.io/focusable/example/index.html)
+[案例展示](https://slailcp.github.io/focusable/example/index.html)
+
+
 **效果示例**
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20201016100758392.gif#pic_center)
 [vue-tv-focusable](https://blog.csdn.net/sllailcp/article/details/109044265)
