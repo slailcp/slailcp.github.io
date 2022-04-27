@@ -56,6 +56,10 @@ setup() {
 ```html
 <div v-focusable>可获取焦点的元素</div>
 <div>不可获取焦点的元素</div>
+
+// 1.1.0版本及其以上支持
+<div v-focusable="true">可获取焦点的元素</div>
+<div v-focusable="false">不可获取焦点的元素</div>
 ```
 跟 android 的很相似了吧~
 给非 android 开发的同学普及一下，在进行 android 的 TV 端开发时，系统是会自动给 focusable=true 的元素分发焦点的，例如：
