@@ -17,11 +17,15 @@
     </div>
     <div class="container">
       <div class="menu">
-        <div class="menu-item" onclick="tab('popup',this)">Pupop</div>
-        <div class="menu-item active" onclick="tab('layer',this)">layer/Dialog</div>
-        <div class="menu-item" onclick="tab('toast',this)">Toast</div>
-        <div class="menu-item" onclick="tab('calendar',this)">Calendar</div>
-        <div class="menu-item" onclick="tab('icons',this)">Icons</div>
+        <div class="menu-item active" onclick="tab('Popup',this)">Pupop</div>
+        <div class="menu-item " onclick="tab('Dialog',this)">Dialog</div>
+        <div class="menu-item" onclick="tab('Toast',this)">Toast</div>
+        <div class="menu-item" onclick="tab('Calendar',this)">Calendar</div>
+        <div class="menu-item" onclick="tab('Rate',this)">rate</div>
+        <div class="menu-item" onclick="tab('Picker',this)">picker</div>
+        <div class="menu-item" onclick="tab('Icon',this)">Icon</div>
+        <div class="menu-item" onclick="tab('Button',this)">button</div>
+        <div class="menu-item" onclick="tab('Cell',this)">cell</div>
       </div>
       <div class="content">
         <!----md-->
@@ -31,18 +35,20 @@
       <div class="frame">
         <!----mobile-->
         <div class="mobile">
-          <iframe id="ex" src="./example/layer.html"></iframe>
+          <iframe id="ex" src="./example/Icons.html"></iframe>
         </div>
       </div>
     </div>
   </div>
 </body>
 <script>
-  tab('layer')
+  tab('Popup')
 
   function tab(type, that) {
     var mdurl = "./document/index.html?type=" + type + "&v=" + Date.now();
-    var exurl = "./example/" + type + ".html?v=" + Date.now();
+    const uname = type.toLowerCase()
+    
+    var exurl = "./example/lanliui/index.html#/" + uname + "?v=" + Date.now();
     var md = document.getElementById("md")
     var ex = document.getElementById("ex")
     md.src = mdurl;

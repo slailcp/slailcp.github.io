@@ -16,36 +16,40 @@ app.use(Toast); // this.$toast(...)
 import { Toast } from 'lanli-ui';
 ...
 setup(){
-    const fn1 = () => {
-        Toast({message:"你的校验不通过哦"})
+    const open1 = (type) => { Toast({ position: type, message: "你的校验不通过哦", }) }
+    const open2 = () => {
+      Toast({
+        message: "<span style='color:orange'>你的校验不通过哦</span>",
+        allowHtml: true,
+        duration: 5000,
+        shade: true,
+      })
+    }
+    const open3 = (str) => {
+      Toast({
+        type: str,
+        message: `执行${str === 'fail' ? '失败' : '成功'}！`,
+        duration: 5000
+      })
     }
 
-    const fn2 = () => {
-        Toast({
-            message:"你的校验不通过哦",
-            duration: 5000,
-            shade: false,
-        })
-    }
+    const open4 = () => {
+      var i = Toast({
+        type: "loading",
+        message: "数据正在加载中"
+      })
 
-    const fn3 = () => {
-        Toast({
-            type:"success"
-            message:"执行成功！",
-            duration: 5000
-        })
-    }
+      setTimeout(() => {
+        Toast.close(i)
+      }, 3000)
 
-    const fn4 = () => {
-        Toast({
-            type:"loading"
-            message:"数据正在加载中"
-        })
     }
-
     return {
-        fn1, fn2, fn3, fn4
-    }
+      open1,
+      open2,
+      open3,
+      open4,
+    };
 }
 </script>
 ```

@@ -32,61 +32,56 @@ setup(){}
 ```html
 选择的时间
 <lan-calendar
-    minDate="2022-03-09"
-    maxDate="2022-03-19"
+    minDate="2021-03-09"
+    maxDate="2021-03-19"
     :defaultDate="defaultDate1"
     monthFormatter="YYYY-MM"
     dateFormatter="DD"
     :startWeek="0"
     @choose="choose"
-/>
+  />
 
 弹窗选择的区间
 <lan-popup v-model:show="toggle1" position="down"  :style="{ height: '60%'}"> 
-    <lan-calendar
-        minDate="2022-03-09"
-        maxDate="2022-05-19"
-        :defaultDate="defaultDate2"
-        :isShowSectionBg="true"
-        monthFormatter="YYYY月MM日"
-        dateFormatter="DD日"
-        className="calendar-tit-fixed"
-        @choose="dChoose"
+  <lan-calendar
+      minDate="2021-03-09"
+      maxDate="2021-05-19"
+      :defaultDate="defaultDate2"
+      :isShowSectionBg="true"
+      monthFormatter="YYYY月MM日"
+      dateFormatter="DD日"
+      @choose="dChoose"
     />
 </lan-popup>
 
-<script lang="ts">
-    setup(){
-        const state = reactive({
-            defaultDate1: ["2022-03-09"],
-            defaultDate2: [],
-            toggle1: false,
-        })
-
-        const open1 = () => { this.toggle1 = true; }
-
-        const = choose(date) =  {
-            this.defaultDate1 = [date];
-        }
-        const = dChoose(date) => {
-            let arr = this.defaultDate2;
-            
-            if (arr.length >= 2) { arr = []; }
-            arr.push(date);
-            
-            if (arr.length == 2 && moment(arr[0]).diff(moment(arr[1])) >= 0) {
-            arr.shift();
-            }
-            this.defaultDate2 = arr;
-            if (arr.length === 2) {
-            this.toggle1 = false;
-            }
-        }
-        
-        return {
-        ...toRefs(state)
-        }
+<script>
+ setup() {
+    const state = reactive({
+      defaultDate1: ["2022-03-09"],
+      defaultDate2: [],
+      toggle1: false,
+    })
+    const choose = (date) => {
+      state.defaultDate1 = [date];
     }
+    const dChoose = (date) => {
+      let arr = state.defaultDate2;
+      if (arr.length >= 2) { arr = []; }
+      arr.push(date);
+      if (arr.length == 2 && moment(arr[0]).diff(moment(arr[1])) >= 0) {
+        arr.shift();
+      }
+      state.defaultDate2 = arr;
+      if (arr.length === 2) {
+        state.toggle1 = false;
+      }
+    }
+    return {
+      ...toRefs(state),
+      choose,
+      dChoose
+    }
+ }
 </script>
 ```
 
