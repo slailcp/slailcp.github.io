@@ -14,7 +14,7 @@ function init() {
   const asp = w / h;
 
   camera = new THREE.PerspectiveCamera(60, asp, 0.1, 999999);
-  camera.position.set(0, 0, 15);
+  camera.position.set(0, 0, 6.5);
   scene.add(camera);
 
  
