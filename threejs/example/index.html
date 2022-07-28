@@ -56,13 +56,13 @@
         <div class="menu-item" onclick="onClickfn('Shader-Basics')">Shader-Basics</div>
     </div>
     <div class="content">
-        <iframe src="/threejs/example/Shader-Basics.html?v=2222" frameborder="0"></iframe>
+        <iframe src="./Shader-Basics.html?v=2222" frameborder="0"></iframe>
     </div>
 </body>
 <script>
     function onClickfn(url) {
         const el = document.querySelector("iframe")
-        el.setAttribute("src", `/threejs/example/${url}.html?v=${Date.now()}`)
+        el.setAttribute("src", `./${url}.html?v=${Date.now()}`)
     }
     onClickfn('Shader-Basics')
 </script>
