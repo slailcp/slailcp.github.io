@@ -527,9 +527,9 @@ Q群 377202993  备注: focusable
 
 # 版本升级日志
 2022-07-28 1.1.1更新日志：
-1.重置或者替换focusableClassname,界面上对应的class那么添加/移除focusable （focusable-core@1.1.2）
-2.修复resetLimiting方法无效问题（focusable-core@1.1.2）
-3.添加动态v-focusable="bool" (vue-tv-focusable@1.1.1)
+1.修复resetLimiting方法无效问题（focusable-core@1.1.2）
+2.添加动态v-focusable="bool" (vue-tv-focusable@1.1.1)
+3.修改focusableClassname,对应的标签同步更新focusable属性 （focusable-core@1.1.2）
 
 2022-02-14 1.0.8更新日志：
 兼容vite
