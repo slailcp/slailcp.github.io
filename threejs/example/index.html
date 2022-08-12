@@ -54,6 +54,7 @@
 <body>
     <div class="menu">
         <div class="menu-item" onclick="onClickfn('Shader-Basics')">Shader-Basics</div>
+        <div class="menu-item" onclick="onClickfn('CubicBezierCurve3')">CubicBezierCurve3</div>
     </div>
     <div class="content">
         <iframe src="./Shader-Basics.html?v=2222" frameborder="0"></iframe>
@@ -64,7 +65,7 @@
         const el = document.querySelector("iframe")
         el.setAttribute("src", `./${url}.html?v=${Date.now()}`)
     }
-    onClickfn('Shader-Basics')
+    onClickfn('CubicBezierCurve3')
 </script>
 
 </html>
