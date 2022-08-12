@@ -1,71 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>three.js webgl - camera cinematic</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="../css/style.css">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <link type="text/css" rel="stylesheet" href="../css/style.css" />
     <style>
-        body {
-            background-color: #fff;
-            color: #000;
-        }
+      body {
+        background-color: #fff;
+        color: #000;
+      }
 
-        a {
-            color: #08f;
-        }
+      a {
+        color: #08f;
+      }
 
-        html {
-            height: 100%;
-        }
+      html {
+        height: 100%;
+      }
 
-        body {
-            display: flex;
-            height: 100%;
-        }
+      body {
+        display: flex;
+        height: 100%;
+      }
 
-        .menu {
-            width: 200px;
-            border-right: 1px solid #d8d8d8;
-            overflow-y: auto;
-        }
+      .menu {
+        width: 200px;
+        border-right: 1px solid #d8d8d8;
+        overflow-y: auto;
+      }
 
-        .menu-item {
-            line-height: 30px;
-            padding: 10px;
-            border-bottom: 1px solid #d8d8d8;
-        }
+      .menu-item {
+        line-height: 30px;
+        padding: 10px;
+        border-bottom: 1px solid #d8d8d8;
+      }
 
-        .content {
-            flex: 1;
-        }
+      .content {
+        flex: 1;
+      }
 
-        iframe {
-            width: 100%;
-            height: 100%;
-        }
+      iframe {
+        width: 100%;
+        height: 100%;
+      }
 
-        /* .code{height:20%}
+      /* .code{height:20%}
         .frame{height:20%} */
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="menu">
-        <div class="menu-item" onclick="onClickfn('Shader-Basics')">Shader-Basics</div>
-        <div class="menu-item" onclick="onClickfn('CubicBezierCurve3')">CubicBezierCurve3</div>
+      <div class="menu-item" onclick="onClickfn('Shader-Basics.html')">
+        Shader-Basics
+      </div>
+      <!-- <div class="menu-item" onclick="onClickfn('CubicBezierCurve3.html')">CubicBezierCurve3</div> -->
+      <div
+        class="menu-item"
+        onclick="onClickfn('daping/index.html#/large-screen')"
+      >
+        共同富裕-企业大屏
+      </div>
     </div>
     <div class="content">
-        <iframe src="./Shader-Basics.html?v=2222" frameborder="0"></iframe>
+      <iframe src="./Shader-Basics.html?v=2222" frameborder="0"></iframe>
     </div>
-</body>
-<script>
+  </body>
+  <script>
     function onClickfn(url) {
-        const el = document.querySelector("iframe")
-        el.setAttribute("src", `./${url}.html?v=${Date.now()}`)
+      const el = document.querySelector('iframe');
+      el.setAttribute('src', `./${url}?v=${Date.now()}`);
     }
-    onClickfn('CubicBezierCurve3')
-</script>
-
+    onClickfn('Shader-Basics');
+  </script>
 </html>
