@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["puzzle"] = factory(require("vue"));
+		exports["vuePuzzle"] = factory(require("vue"));
 	else
-		root["puzzle"] = factory(root["Vue"]);
+		root["vuePuzzle"] = factory(root["Vue"]);
 })((typeof self !== 'undefined' ? self : this), function(__WEBPACK_EXTERNAL_MODULE__203__) {
 return /******/ (function() { // webpackBootstrap
 /******/ 	"use strict";
@@ -129,145 +129,60 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/typeof.js
-function _typeof(o) {
-  "@babel/helpers - typeof";
-
-  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
-    return typeof o;
-  } : function (o) {
-    return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
-  }, _typeof(o);
-}
-;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/toPrimitive.js
-
-function _toPrimitive(input, hint) {
-  if (_typeof(input) !== "object" || input === null) return input;
-  var prim = input[Symbol.toPrimitive];
-  if (prim !== undefined) {
-    var res = prim.call(input, hint || "default");
-    if (_typeof(res) !== "object") return res;
-    throw new TypeError("@@toPrimitive must return a primitive value.");
-  }
-  return (hint === "string" ? String : Number)(input);
-}
-;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/toPropertyKey.js
-
-
-function _toPropertyKey(arg) {
-  var key = _toPrimitive(arg, "string");
-  return _typeof(key) === "symbol" ? key : String(key);
-}
-;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/defineProperty.js
-
-function _defineProperty(obj, key, value) {
-  key = _toPropertyKey(key);
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-  return obj;
-}
-;// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js
-
-function ownKeys(e, r) {
-  var t = Object.keys(e);
-  if (Object.getOwnPropertySymbols) {
-    var o = Object.getOwnPropertySymbols(e);
-    r && (o = o.filter(function (r) {
-      return Object.getOwnPropertyDescriptor(e, r).enumerable;
-    })), t.push.apply(t, o);
-  }
-  return t;
-}
-function _objectSpread2(e) {
-  for (var r = 1; r < arguments.length; r++) {
-    var t = null != arguments[r] ? arguments[r] : {};
-    r % 2 ? ownKeys(Object(t), !0).forEach(function (r) {
-      _defineProperty(e, r, t[r]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) {
-      Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r));
-    });
-  }
-  return e;
-}
 // EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
 var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__(203);
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./packages/puzzle1/puzzle1.vue?vue&type=script&setup=true&lang=js
 
-
-var _withScopeId = function _withScopeId(n) {
-  return (0,external_commonjs_vue_commonjs2_vue_root_Vue_.pushScopeId)("data-v-28fc4b5d"), n = n(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.popScopeId)(), n;
-};
-var _hoisted_1 = ["filter"];
-var _hoisted_2 = ["d", "fill", "stroke", "stroke-width"];
-var _hoisted_3 = ["id"];
-var _hoisted_4 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementVNode)("rect", {
-    width: "100%",
-    height: "100%",
-    fill: "black"
-  }, null, -1);
-});
-var _hoisted_5 = ["d", "stroke", "stroke-width"];
-var _hoisted_6 = ["href", "mask"];
-var _hoisted_7 = ["id"];
-var _hoisted_8 = ["offset", "stop-color", "stop-opacity"];
-var _hoisted_9 = ["id"];
-var _hoisted_10 = ["offset", "stop-color", "stop-opacity"];
-var _hoisted_11 = ["id"];
-var _hoisted_12 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementVNode)("feFlood", {
-    "flood-opacity": "0",
-    result: "BackgroundImageFix"
-  }, null, -1);
-});
-var _hoisted_13 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementVNode)("feBlend", {
-    mode: "normal",
-    in: "SourceGraphic",
-    in2: "BackgroundImageFix",
-    result: "shape"
-  }, null, -1);
-});
-var _hoisted_14 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementVNode)("feColorMatrix", {
-    in: "SourceAlpha",
-    type: "matrix",
-    values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0",
-    result: "hardAlpha"
-  }, null, -1);
-});
-var _hoisted_15 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementVNode)("feOffset", {
-    dx: "20",
-    dy: "20"
-  }, null, -1);
-});
-var _hoisted_16 = ["stdDeviation"];
-var _hoisted_17 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementVNode)("feComposite", {
-    in2: "hardAlpha",
-    operator: "arithmetic",
-    k2: "-1",
-    k3: "1"
-  }, null, -1);
-});
-var _hoisted_18 = ["values"];
-var _hoisted_19 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementVNode)("feBlend", {
-    mode: "normal",
-    in2: "shape",
-    result: "effect1_innerShadow_5_2"
-  }, null, -1);
-});
-var _hoisted_20 = {
+const _withScopeId = n => ((0,external_commonjs_vue_commonjs2_vue_root_Vue_.pushScopeId)("data-v-28fc4b5d"), n = n(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.popScopeId)(), n);
+const _hoisted_1 = ["filter"];
+const _hoisted_2 = ["d", "fill", "stroke", "stroke-width"];
+const _hoisted_3 = ["id"];
+const _hoisted_4 = /*#__PURE__*/_withScopeId(() => /*#__PURE__*/(0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementVNode)("rect", {
+  width: "100%",
+  height: "100%",
+  fill: "black"
+}, null, -1));
+const _hoisted_5 = ["d", "stroke", "stroke-width"];
+const _hoisted_6 = ["href", "mask"];
+const _hoisted_7 = ["id"];
+const _hoisted_8 = ["offset", "stop-color", "stop-opacity"];
+const _hoisted_9 = ["id"];
+const _hoisted_10 = ["offset", "stop-color", "stop-opacity"];
+const _hoisted_11 = ["id"];
+const _hoisted_12 = /*#__PURE__*/_withScopeId(() => /*#__PURE__*/(0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementVNode)("feFlood", {
+  "flood-opacity": "0",
+  result: "BackgroundImageFix"
+}, null, -1));
+const _hoisted_13 = /*#__PURE__*/_withScopeId(() => /*#__PURE__*/(0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementVNode)("feBlend", {
+  mode: "normal",
+  in: "SourceGraphic",
+  in2: "BackgroundImageFix",
+  result: "shape"
+}, null, -1));
+const _hoisted_14 = /*#__PURE__*/_withScopeId(() => /*#__PURE__*/(0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementVNode)("feColorMatrix", {
+  in: "SourceAlpha",
+  type: "matrix",
+  values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0",
+  result: "hardAlpha"
+}, null, -1));
+const _hoisted_15 = /*#__PURE__*/_withScopeId(() => /*#__PURE__*/(0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementVNode)("feOffset", {
+  dx: "20",
+  dy: "20"
+}, null, -1));
+const _hoisted_16 = ["stdDeviation"];
+const _hoisted_17 = /*#__PURE__*/_withScopeId(() => /*#__PURE__*/(0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementVNode)("feComposite", {
+  in2: "hardAlpha",
+  operator: "arithmetic",
+  k2: "-1",
+  k3: "1"
+}, null, -1));
+const _hoisted_18 = ["values"];
+const _hoisted_19 = /*#__PURE__*/_withScopeId(() => /*#__PURE__*/(0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementVNode)("feBlend", {
+  mode: "normal",
+  in2: "shape",
+  result: "effect1_innerShadow_5_2"
+}, null, -1));
+const _hoisted_20 = {
   class: "content"
 };
 
@@ -310,7 +225,7 @@ var _hoisted_20 = {
     },
     colors: {
       type: Array,
-      default: function _default() {
+      default: () => {
         return [];
       }
     },
@@ -330,7 +245,7 @@ var _hoisted_20 = {
     },
     style: {
       type: Object,
-      default: function _default() {
+      default: () => {
         return {};
       }
     },
@@ -345,14 +260,14 @@ var _hoisted_20 = {
     },
     gradient: {
       type: Object,
-      default: function _default(e, q) {
+      default: (e, q) => {
         return {};
       }
     }
   },
-  setup: function setup(__props) {
-    var props = __props;
-    var gradientobj = (0,external_commonjs_vue_commonjs2_vue_root_Vue_.ref)({
+  setup(__props) {
+    const props = __props;
+    const gradientobj = (0,external_commonjs_vue_commonjs2_vue_root_Vue_.ref)({
       type: props.gradient.type || "linear",
       // type = radial,point = cx="50%" cy="50%" r="50%" fx="50%" fy="50%"
       point: props.gradient.point || {
@@ -364,7 +279,7 @@ var _hoisted_20 = {
       // type = line,point= x1="362.5" y1="725" x2="362.5" y2="0"
       opacity: props.gradient.opacity || 1
     });
-    var path = (0,external_commonjs_vue_commonjs2_vue_root_Vue_.ref)("M375 75C375 94.2089 367.779 111.731 355.903 125H600V373.097C613.269 361.221 630.791 354 650 354C691.421 354 725 387.579 725 429C725 470.421 691.421 504 650 504C630.791 504 613.269 496.779 600 484.903V725H359.903C371.779 711.731 379 694.209 379 675C379 633.579 345.421 600 304 600C262.579 600 229 633.579 229 675C229 694.209 236.221 711.731 248.097 725H0V484.903C13.2689 496.779 30.7911 504 50 504C91.4214 504 125 470.421 125 429C125 387.579 91.4214 354 50 354C30.7911 354 13.2689 361.221 0 373.097V125H244.097C232.221 111.731 225 94.2089 225 75C225 33.5786 258.579 0 300 0C341.421 0 375 33.5786 375 75Z");
+    let path = (0,external_commonjs_vue_commonjs2_vue_root_Vue_.ref)("M375 75C375 94.2089 367.779 111.731 355.903 125H600V373.097C613.269 361.221 630.791 354 650 354C691.421 354 725 387.579 725 429C725 470.421 691.421 504 650 504C630.791 504 613.269 496.779 600 484.903V725H359.903C371.779 711.731 379 694.209 379 675C379 633.579 345.421 600 304 600C262.579 600 229 633.579 229 675C229 694.209 236.221 711.731 248.097 725H0V484.903C13.2689 496.779 30.7911 504 50 504C91.4214 504 125 470.421 125 429C125 387.579 91.4214 354 50 354C30.7911 354 13.2689 361.221 0 373.097V125H244.097C232.221 111.731 225 94.2089 225 75C225 33.5786 258.579 0 300 0C341.421 0 375 33.5786 375 75Z");
     if (props.index >= props.total - props.linenum && props.total) {
       path.value = "M375 75C375 94.2089 367.779 111.731 355.903 125H600V369.097C613.269 357.221 630.791 350 650 350C691.421 350 725 383.579 725 425C725 466.421 691.421 500 650 500C630.791 500 613.269 492.779 600 480.903V725H0V480.903C13.2689 492.779 30.7911 500 50 500C91.4214 500 125 466.421 125 425C125 383.579 91.4214 350 50 350C30.7911 350 13.2689 357.221 0 369.097V125H244.097C232.221 111.731 225 94.2089 225 75C225 33.5786 258.579 0 300 0C341.421 0 375 33.5786 375 75Z";
     }
@@ -382,30 +297,31 @@ var _hoisted_20 = {
     //   y2: "0",
     // });
 
-    var itemstyle = (0,external_commonjs_vue_commonjs2_vue_root_Vue_.ref)(_objectSpread2(_objectSpread2({}, props.style), {}, {
+    const itemstyle = (0,external_commonjs_vue_commonjs2_vue_root_Vue_.ref)({
+      ...props.style,
       width: props.size,
       height: props.size
-    }));
+    });
     0.666 * 0.208333 + 0.666;
     // const re = new RegExp(props.unit, "g");
     // const w = Number(itemstyle.value.width.replace(re, ""));
-    var unit = props.size.replace(/\d+|\./g, "");
-    var w = Number(props.size.replace(/[^\-?\d\.]/g, ""));
-    var svgtyle = (0,external_commonjs_vue_commonjs2_vue_root_Vue_.ref)({
+    const unit = props.size.replace(/\d+|\./g, "");
+    const w = Number(props.size.replace(/[^\-?\d\.]/g, ""));
+    const svgtyle = (0,external_commonjs_vue_commonjs2_vue_root_Vue_.ref)({
       width: (w * (125 / 600) + w).toFixed(4) + unit,
       height: (w * (125 / 600) + w).toFixed(4) + unit,
       top: -(w * (125 / 600).toFixed(4)) + unit
     });
     function generateColorMatrixValues(colorHex) {
       // 将十六进制颜色转换为RGB数组
-      var r = parseInt(colorHex.slice(1, 3), 16) / 255;
-      var g = parseInt(colorHex.slice(3, 5), 16) / 255;
-      var b = parseInt(colorHex.slice(5, 7), 16) / 255;
+      const r = parseInt(colorHex.slice(1, 3), 16) / 255;
+      const g = parseInt(colorHex.slice(3, 5), 16) / 255;
+      const b = parseInt(colorHex.slice(5, 7), 16) / 255;
 
       // 返回对应的feColorMatrix values
-      return "0 0 0 0 ".concat(r, " 0 0 0 0 ").concat(g, " 0 0 0 0 ").concat(b, " 0 0 0 ").concat(props.shadowRatio, " 0");
+      return `0 0 0 0 ${r} 0 0 0 0 ${g} 0 0 0 0 ${b} 0 0 0 ${props.shadowRatio} 0`;
     }
-    return function (_ctx, _cache) {
+    return (_ctx, _cache) => {
       return (0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementBlock)("div", {
         class: "p-item p-bg",
         style: (0,external_commonjs_vue_commonjs2_vue_root_Vue_.normalizeStyle)(itemstyle.value)
@@ -417,17 +333,17 @@ var _hoisted_20 = {
         fill: "none",
         xmlns: "http://www.w3.org/2000/svg"
       }, [(0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementVNode)("g", {
-        filter: "url(#".concat(__props.shadowColor ? 'filter0_i_5_2_' + __props.mark + __props.index : '', ")")
+        filter: `url(#${__props.shadowColor ? 'filter0_i_5_2_' + __props.mark + __props.index : ''})`
       }, [(0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementVNode)("path", {
         "fill-rule": "evenodd",
         "clip-rule": "evenodd",
         d: (0,external_commonjs_vue_commonjs2_vue_root_Vue_.unref)(path),
-        fill: __props.colors.length ? "url(#paint0_linear_3_18_".concat(__props.mark + __props.index, ")") : __props.bgColor,
+        fill: __props.colors.length ? `url(#paint0_linear_3_18_${__props.mark + __props.index})` : __props.bgColor,
         stroke: __props.borderColor,
         "stroke-width": __props.borderWidth
       }, null, 8, _hoisted_2)], 8, _hoisted_1), __props.imgpath ? ((0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementBlock)("mask", {
         key: 0,
-        id: "myMask_".concat(__props.mark + __props.index)
+        id: `myMask_${__props.mark + __props.index}`
       }, [_hoisted_4, (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementVNode)("path", {
         "fill-rule": "evenodd",
         "clip-rule": "evenodd",
@@ -442,13 +358,13 @@ var _hoisted_20 = {
         width: "725",
         height: "725",
         href: __props.imgpath,
-        mask: "url(#myMask_".concat(__props.mark + __props.index, ")")
+        mask: `url(#myMask_${__props.mark + __props.index})`
       }, null, 8, _hoisted_6)) : (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createCommentVNode)("", true), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementVNode)("defs", null, [__props.colors.length && gradientobj.value.type == 'linear' ? ((0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementBlock)("linearGradient", (0,external_commonjs_vue_commonjs2_vue_root_Vue_.mergeProps)({
         key: 0,
-        id: "paint0_linear_3_18_".concat(__props.mark + __props.index)
+        id: `paint0_linear_3_18_${__props.mark + __props.index}`
       }, gradientobj.value.point, {
         gradientUnits: "userSpaceOnUse"
-      }), [((0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(true), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementBlock)(external_commonjs_vue_commonjs2_vue_root_Vue_.Fragment, null, (0,external_commonjs_vue_commonjs2_vue_root_Vue_.renderList)(__props.colors, function (f, fi) {
+      }), [((0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(true), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementBlock)(external_commonjs_vue_commonjs2_vue_root_Vue_.Fragment, null, (0,external_commonjs_vue_commonjs2_vue_root_Vue_.renderList)(__props.colors, (f, fi) => {
         return (0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementBlock)("stop", {
           offset: fi / __props.colors.length,
           "stop-color": f,
@@ -458,8 +374,8 @@ var _hoisted_20 = {
         }, null, 12, _hoisted_8);
       }), 128))], 16, _hoisted_7)) : (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createCommentVNode)("", true), __props.colors.length && gradientobj.value.type == 'radial' ? ((0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementBlock)("radialGradient", (0,external_commonjs_vue_commonjs2_vue_root_Vue_.mergeProps)({
         key: 1,
-        id: "paint0_linear_3_18_".concat(__props.mark + __props.index)
-      }, gradientobj.value.point), [((0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(true), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementBlock)(external_commonjs_vue_commonjs2_vue_root_Vue_.Fragment, null, (0,external_commonjs_vue_commonjs2_vue_root_Vue_.renderList)(__props.colors, function (f, fi) {
+        id: `paint0_linear_3_18_${__props.mark + __props.index}`
+      }, gradientobj.value.point), [((0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(true), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementBlock)(external_commonjs_vue_commonjs2_vue_root_Vue_.Fragment, null, (0,external_commonjs_vue_commonjs2_vue_root_Vue_.renderList)(__props.colors, (f, fi) => {
         return (0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementBlock)("stop", {
           offset: fi / __props.colors.length,
           "stop-color": f,
@@ -469,7 +385,7 @@ var _hoisted_20 = {
         }, null, 12, _hoisted_10);
       }), 128))], 16, _hoisted_9)) : (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createCommentVNode)("", true), __props.shadowColor ? ((0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementBlock)("filter", {
         key: 2,
-        id: "filter0_i_5_2_".concat(__props.mark + __props.index),
+        id: `filter0_i_5_2_${__props.mark + __props.index}`,
         x: "0",
         y: "0",
         width: "745",
@@ -505,19 +421,17 @@ const __exports__ = /*#__PURE__*/(0,exportHelper/* default */.Z)(puzzle1vue_type
 
 /* harmony default export */ var puzzle1 = (__exports__);
 ;// CONCATENATED MODULE: ./packages/utils/format.js
-var camelizeRE = /-(\w)/g;
-var camelize = function camelize(str) {
-  return str.replace(camelizeRE, function (_, c) {
-    return c.toUpperCase();
-  });
-};
+const camelizeRE = /-(\w)/g;
+const camelize = str => str.replace(camelizeRE, (_, c) => c.toUpperCase());
 ;// CONCATENATED MODULE: ./packages/utils/with-install.js
 
 function withInstall(options) {
-  options.install = function (app) {
-    var name = options.name;
+  options.install = app => {
+    const {
+      name
+    } = options;
     app.component(name, options);
-    app.component(camelize("-".concat(name)), options);
+    app.component(camelize(`-${name}`), options);
   };
   return options;
 }
@@ -525,7 +439,7 @@ function withInstall(options) {
 
 
 
-var Puzzle1 = withInstall(puzzle1);
+const Puzzle1 = withInstall(puzzle1);
 /* harmony default export */ var packages_puzzle1 = ((/* unused pure expression or super */ null && (Puzzle1)));
 ;// CONCATENATED MODULE: ./packages/index.js
 
@@ -539,4 +453,4 @@ var Puzzle1 = withInstall(puzzle1);
 /******/ })()
 ;
 });
-//# sourceMappingURL=puzzle.umd.js.map
+//# sourceMappingURL=vuePuzzle.umd.js.map

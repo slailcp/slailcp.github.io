@@ -103,14 +103,14 @@
   </div>
 
 </body>
-<link rel="stylesheet" href="./dist/puzzle.css" />
+<link rel="stylesheet" href="./dist/vuePuzzle.css" />
 <script src="./vue.global.prod.js"></script>
-<script src="./dist/puzzle.umd.min.js"></script>
+<script src="./dist/vuePuzzle.umd.min.js"></script>
 
 <script>
   const app = Vue.createApp({
     components: {
-      puzzle1: puzzle.Puzzle1,
+      puzzle1: vuePuzzle.Puzzle1,
     },
     setup() {
       var state = Vue.reactive({
@@ -124,7 +124,7 @@
       }
     }
   });
-  app.use(puzzle);
+  app.use(vuePuzzle);
   app.mount('#appRoot');
 
 </script>
