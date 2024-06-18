@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>拼图案例</title>
+  <style>
+    .title {
+      color: #fff;
+      font-size: 24px;
+      font-weight: 600;
+      padding-bottom: 50px;
+    }
+
+    .title1 {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 600;
+      padding: 50px 50px 50px 0;
+    }
+
+    .box {
+      padding: 30px 0;
+    }
+  </style>
+</head>
+
+<body id="appRoot">
+  <div style="background: blue; padding: 30px; min-height: 800px">
+    <div class="box">
+      <div class="title">单个拼图</div>
+      <puzzle1 @click="fn" ></puzzle1>
+    </div>
+    <div class="box">
+      <div class="title">设置大小（默认100px）</div>
+      <puzzle1 size="150px"></puzzle1>
+    </div>
+    <div class="box">
+      <div class="title">设置背景色，边框粗细，边框颜色</div>
+      <puzzle1 bg-color="#88fb92" border-color="#FF0000" border-width="10" ></puzzle1>
+    </div>
+    <div class="box">
+      <div class="title">设置阴影,阴影程度，阴影扩散大小,需要设置index或者mark唯一标识</div>
+      <puzzle1 mark="10" shadow-color="#FF0000" shadow-ratio="0.4" shadow-spread="100"></puzzle1>
+    </div>
+    <div class="box">
+      <div class="title">设置渐变,需要设置index或者mark唯一标识</div>
+      <puzzle1 mark="0" :colors="['#ffff00', '#88fb92', '#ff0000', '#ffff00']">默认<br />线性渐变<br />从上到下</puzzle1>
+      <puzzle1 mark="1" :colors="['#ffff00', '#88fb92', '#ff0000', '#ffff00']"
+        :gradient="{ type: 'linear', opacity: 0.8, point: { x1: `725`, y1: `725`, x2: `0`, y2: `0` } }">渐变角度</puzzle1>
+      <puzzle1 mark="2" :colors="['#ffff00', '#88fb92', '#ff0000', '#ffff00']"
+        :gradient="{ type: 'radial', opacity: 0.9, point: { cx: '40%', cy: '60%', r: '50%', fx: '50%', fy: '50%' } }">
+        径向渐变</puzzle1>
+    </div>
+    <div class="box">
+      <div class="title">裁切图片</div>
+      <puzzle1 :imgpath="('./images/hw.png')" ></puzzle1>
+      <puzzle1 :imgpath="('./images/hw.png')" ></puzzle1>
+    </div>
+    <div class="box">
+      <div class="title">列表</div>
+      <div style="width: 600px; height: 600px; font-size: 0; overflow: hidden; border-radius: 12px">
+        <div v-for="(f, fi) of hightlist1" :key="fi">
+          <puzzle1 mark="mark36" :index="fi" :total="hightlist1.length" linenum="6" border-color="#000000"
+            border-width="10" :imgpath="('./images/hw.png')" style="float: left" v-if="fi < 10" ></puzzle1>
+          <puzzle1 mark="mark36" :index="fi" :total="hightlist1.length" linenum="6" shadow-color="#FF0000"
+            shadow-ratio="0.4" shadowSpread="100" style="float: left" v-else-if="fi == 22" ></puzzle1>
+          <puzzle1 mark="mark36" :index="fi" :total="hightlist1.length" linenum="6"
+            :colors="['#ffff00', '#88fb92', '#ff0000', '#ffff00']" style="float: left" v-else-if="fi == 23" ></puzzle1>
+          <puzzle1 mark="mark36" :index="fi" :total="hightlist1.length" linenum="6" border-color="#000000"
+            border-width="10" style="float: left" v-else ></puzzle1>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="title">列表，一行6个</div>
+      <div style="width: 600px; height: 600px; font-size: 0; overflow: hidden; border-radius: 12px;position: relative;">
+        <img style="position: absolute; top: 50%; transform: translateY(-50%); left: 0; width: 100%; z-index: 6"
+          src="./images/7.5.png" alt="" slot="bg" />
+        <div v-for="(f, fi) of hightlist1" :key="fi">
+          <puzzle1 mark="mark36" :index="fi" :total="hightlist1.length" linenum="6" shadow-color="#FFFF00"
+            shadow-ratio="0.4" shadowSpread="100" style="float: left; z-index: 7" v-if="fi < 10"></puzzle1>
+          <puzzle1 mark="mark36" :index="fi" :total="hightlist1.length" linenum="6" style="float: left; z-index: 5"
+            v-else ></puzzle1>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="title">列表,一行10个</div>
+      <div style="width: 500px; height: 500px; font-size: 0; overflow: hidden; border-radius: 12px;position: relative;">
+        <img style="position: absolute; top: 50%; transform: translateY(-50%); left: 0; width: 100%; z-index: 6"
+          src="./images/pbg.png" alt="" slot="bg" />
+        <div v-for="(f, fi) of hightlist2" :key="fi">
+          <puzzle1 mark="mark36" size="50px" :index="fi" :total="hightlist2.length" linenum="10"
+            bg-color="rgba(0,0,0,0)" border-color="#000000" style="float: left; z-index: 7" v-if="fi < 22" ></puzzle1>
+          <puzzle1 mark="mark36" size="50px" :index="fi" :total="hightlist2.length" linenum="10"
+            bg-color="rgba(0,0,0,0.7)" border-color="#000000" style="float: left; z-index: 7" v-else ></puzzle1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+<link rel="stylesheet" href="./dist/puzzle.css" />
+<script src="./vue.global.prod.js"></script>
+<script src="./dist/puzzle.umd.min.js"></script>
+
+<script>
+  const app = Vue.createApp({
+    components: {
+      puzzle1: puzzle.Puzzle1,
+    },
+    setup() {
+      var state = Vue.reactive({
+        hightlist1: [...Array(36).keys()],
+        hightlist2: [...Array(100).keys()]
+      })
+
+      return {
+        ...Vue.toRefs(state),
+
+      }
+    }
+  });
+  app.use(puzzle);
+  app.mount('#appRoot');
+
+</script>
+
+</html>
