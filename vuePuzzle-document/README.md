@@ -1,28 +1,28 @@
 
-@[TOC](vuePuzzle文档)
+@[TOC](vue-puzzle文档)
 
 
 # 文档地址
 
-[vuePuzzle-文档地址1](https://slailcp.github.io/vuePuzzle-document/index.html)
-[vuePuzzle-文档地址2](https://blog.csdn.net/sllailcp/article/details/139597472?spm=1001.2014.3001.5502)
+[vue-puzzle-文档地址1](https://slailcp.github.io/vuePuzzle-document/index.html)
+[vue-puzzle-文档地址2](https://blog.csdn.net/sllailcp/article/details/139597472?spm=1001.2014.3001.5502)
 
 # 案例地址
 
-[vuePuzzle-案例地址](https://slailcp.github.io/vuePuzzle/index.html)
+[vue-puzzle-案例地址](https://slailcp.github.io/vuePuzzle/index.html)
 
 # 源码地址
 
-[vuePuzzle-源码地址](https://github.com/slailcp/puzzle/blob/main/puzzle1.vue)
+[vue-puzzle-源码地址](https://github.com/slailcp/puzzle/blob/main/puzzle1.vue)
 
 
 
 # npm 安装
-npm i --save vuePuzzle
+npm i --save vue-puzzle
 
 # 引入
-import {Puzzle1} from 'vuePuzzle'
-import 'vuePuzzle/vuePuzzle.css'
+import {Puzzle1} from 'vue-puzzle'
+import 'vue-puzzle/vuePuzzle.css'
 # 使用
 
 ## 单个拼图
