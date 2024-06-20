@@ -1,9 +1,11 @@
 
 @[TOC](vuePuzzle文档)
 
+
 # 文档地址
 
-[vuePuzzle-文档地址](https://blog.csdn.net/sllailcp/article/details/139597472?spm=1001.2014.3001.5502)
+[vuePuzzle-文档地址1](https://slailcp.github.io/vuePuzzle-document/index.html)
+[vuePuzzle-文档地址2](https://blog.csdn.net/sllailcp/article/details/139597472?spm=1001.2014.3001.5502)
 
 # 案例地址
 
