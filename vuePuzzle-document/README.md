@@ -21,8 +21,9 @@
 npm i --save vue-puzzle
 
 # 引入
-import {Puzzle1} from 'vue-puzzle'
-import 'vue-puzzle/vuePuzzle.css'
+import {Puzzle1} from 'vue-puzzle';
+
+import 'vue-puzzle/vuePuzzle.css';
 # 使用
 
 ## 单个拼图
