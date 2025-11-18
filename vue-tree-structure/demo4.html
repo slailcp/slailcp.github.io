@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="./dist/vueTreeStructure.css">
+        <link rel="stylesheet" href="http://unpkg.com/element-plus/dist/index.css">
+        <script src="http://unpkg.com/vue@3"></script>
+        <script src="http://unpkg.com/element-plus"></script>
+        <script src="./dist/vueTreeStructure.umd.js"></script>
+    </head>
+    <body>
+        <div id="appRoot">
+            <tree-menu :mode="1" :show-level="1" :init-data="initData" :page-size="3" :tree-update-data="treeUpdateData" :get-dep-list-api="getDepListApi" v-on:update:selected="handleSelectionChange" style="height: calc(100vh - 130px);width:800px">
+            <!-- <template #nodename="{ node }">
+              <el-popover class="box-item" :content="node.Name" placement="top" popper-style="width: auto;">
+                <template #reference>{{ node.Name }} </template>
+              </el-popover>
+            </template> -->
+            <template #append="{ node }">
+              <span class="node-operate" style="position: absolute; right: 10px">
+                <el-popover class="box-item" placement="bottom" popper-class="operate-popper">
+                  <div class="operate-list">
+                    <div class="o-item" @click="handleEditDepartment(node, 2)" v-if="node.Level !== 0">编辑部门</div>
+                    <div class="o-item" @click="handleEditDepartment(node, 1)">添加子部门</div>
+                    <div class="o-item" @click="handleDeleteChildDepartment(node)" style="color: #f93d3d" v-if="node.Level !== 0">删除部门</div>
+                  </div>
+                  <template #reference> ...</template>
+                </el-popover>
+              </span>
+            </template>
+          </tree-menu>
+
+              <!--编辑部门-->
+            <el-dialog v-model="editShow" :title="`${addParams.PK_Guid ? '新增' : '编辑'}部门`" width="600px">
+              <el-form :model="editParams" label-width="auto">
+                <el-form-item label="父部门" v-if="addParams.Name">
+                  {{ addParams.Name }}
+                </el-form-item>
+                <el-form-item label="部门名称">
+                  <span v-if="addParams.PK_Guid" ><el-input v-model="addParams.childDepName"/></span>
+                  <span v-else>
+                    <el-input v-model="editParams.Name" />
+                  </span>
+                </el-form-item>
+              </el-form>
+              <template #footer>
+                <el-button type="primary" @click="editShow = false">取消</el-button>
+                <el-button type="primary" @click="editEnter">确定</el-button>
+              </template>
+            </el-dialog>
+        </div>
+    </body>
+<script setup type="module">
+import { QueryDeptsApi, editDeptApi, addDeptApi, delDeptApi  } from "./api/department.js";
+const { ref, onMounted, nextTick,reactive  } = Vue;
+const { treeMenu,treeSelector } = vueTreeStructure;
+
+const app = Vue.createApp({
+  components: {
+    treeMenu,treeSelector
+  },
+  setup() {
+    const initData = ref([{ PK_Guid: "100007", Name: "法务部", Level: 1 }]);
+    const treeUpdateData = ref(null);
+    const editShow = ref(false);
+    const addParams = reactive({
+      childDepName: "",
+      Name: "",
+      PK_Guid: "",
+    });
+    const editParams = reactive({
+      Name: "",
+      PK_Guid: "",
+    });
+    // selected
+    function handleSelectionChange(node) {
+      console.log(node);
+    }
+
+    function handleEditDepartment(node, type) {
+      if (type == 1) {
+        // 新增
+        addParams.Name = node.Name;
+        addParams.PK_Guid = node.PK_Guid;
+        editParams.Name = "";
+        editParams.PK_Guid = "";
+      }
+      if (type == 2) {
+        // 编辑
+        editParams.Name = node.Name;
+        editParams.PK_Guid = node.PK_Guid;
+        addParams.childDepName = "";
+        addParams.PK_Guid = "";
+      }
+      editShow.value = true;
+    }
+
+    function handleDeleteChildDepartment(node) {
+      ElMessageBox.confirm(`确认要删除“${node.Name}”吗？`, {
+        title: "提示",
+        confirmButtonText: "确认删除",
+        cancelButtonText: "取消",
+      }).then((data) => {
+        delDeptApi({
+          DeptId: node.PK_Guid,
+        }).then((ret) => {
+          debugger;
+          treeUpdateData.value = ret.Data;
+        });
+      });
+    }
+
+    function editEnter() {
+      if (addParams.PK_Guid) {
+        /**新增接口返回的是平铺的数据，从当前部门（ChildNode下包含一条新增的数据）->父部门->爷爷部门 */
+        addDeptApi({
+          DeptId: addParams.PK_Guid,
+          childDepName: addParams.childDepName,
+        }).then((ret) => {
+          editShow.value = false;
+          treeUpdateData.value = ret.Data;
+          console.log(ret);
+        });
+      } else {
+        /**编辑接口返回的是平铺的数据，从当前部门->父部门->爷爷部门 */
+        editDeptApi({
+          DeptId: editParams.PK_Guid,
+          Name: editParams.Name,
+        }).then((ret) => {
+          editShow.value = false;
+          treeUpdateData.value = ret.Data;
+        });
+      }
+    }
+    function getDepListApi(params) {
+      return QueryDeptsApi({ ...params, pageSize: 15, getuser: 1 });
+    }
+    onMounted(() => {});
+    return {
+      initData,
+      treeUpdateData,
+      editShow,
+      addParams,
+      editParams,
+      handleSelectionChange,
+      handleEditDepartment,
+      handleDeleteChildDepartment,
+      editEnter,
+      getDepListApi,
+    }
+  }
+});
+app.use(ElementPlus);
+app.mount('#appRoot');
+</script>
+</html>

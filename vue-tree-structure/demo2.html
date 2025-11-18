@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="./dist/vueTreeStructure.css">
+        <link rel="stylesheet" href="http://unpkg.com/element-plus/dist/index.css">
+        <script src="http://unpkg.com/vue@3"></script>
+        <script src="http://unpkg.com/element-plus"></script>
+        <script src="./dist/vueTreeStructure.umd.js"></script>
+    </head>
+    <body>
+        <div id="appRoot">
+          <el-form label-width="120px">
+              <el-form-item label="chooseType">
+                <el-radio-group v-model="chooseType">
+                  <el-radio :value="0">查看组织架构0</el-radio>
+                  <el-radio :value="1">选择部门1</el-radio>
+                  <el-radio :value="2">选择员工2</el-radio>
+                  <el-radio :label="3">选择员工+部门3</el-radio>
+                </el-radio-group>
+              </el-form-item>
+              <el-form-item label="singleChoice">
+                <el-radio-group v-model="singleChoice">
+                  <el-radio :value="true">单选true</el-radio>
+                  <el-radio :value="false">多选false</el-radio>
+                </el-radio-group>
+              </el-form-item>
+              <el-form-item label="pageSize">
+                <el-radio-group v-model="pageSize">
+                  <el-radio :value="3">每页3条</el-radio>
+                  <el-radio :value="10">每页10条</el-radio>
+                </el-radio-group>
+              </el-form-item>
+              <el-form-item label="initData">
+                <el-button :type="initData.length ? 'primary' : ''" @click="initData = [{ PK_Guid: '100000', Name: '测试公司1', Level: 0 }]">初始是选中第一个企业id:100000</el-button>
+                <el-button :type="!initData.length ? 'primary' : ''" @click="initData = []">初始不选中任何项</el-button>
+              </el-form-item>
+              <el-form-item label="scopeNode">
+                <el-button :type="scopeNode ? 'primary' : ''" @click="scopeNode = { PK_Guid: '100002', Name: '卓越创新部' }">加载id:100002部门下的数据</el-button>
+                <el-button :type="!scopeNode ? 'primary' : ''" type="primary" @click="scopeNode = null">默认加载所有</el-button>
+              </el-form-item>
+              <el-form-item label="rootNodeName" v-if="!scopeNode">
+                <el-radio-group v-model="rootNodeName">
+                  <el-radio :value="`全部企业`">全部企业</el-radio>
+                  <el-radio :value="'全部'">默认文案（全部）</el-radio>
+                </el-radio-group>
+              </el-form-item>
+
+              <el-form-item>
+                <el-button @click="openDepartmentSelector()">打开部门</el-button>
+              </el-form-item>
+            </el-form>
+
+            <el-dialog v-model="depShow" title="选择部门" width="800px">
+              <tree-selector v-if="depShow" ref="departmentSelector" :choose-type="chooseType" :single-choice="singleChoice" :page-size="pageSize" :init-data="initData" :scope-node="scopeNode" :root-node-name="rootNodeName" :get-dep-list-api="getDepListApi" v-on:confirm="handleConfirm" v-on:cancel="handleCancel"></tree-selector>
+            </el-dialog>
+        </div>
+    </body>
+<script setup type="module">
+import { QueryDeptsApi } from "./api/department.js";
+const { ref, onMounted, nextTick } = Vue;
+const { treeMenu,treeSelector } = vueTreeStructure;
+
+const app = Vue.createApp({
+  components: {
+    treeMenu,treeSelector
+  },
+  setup() {
+      const initData = ref([]);
+      const scopeNode = ref(null);
+      const chooseType = ref(3);
+      const singleChoice = ref(false);
+      const pageSize = ref(3);
+      const rootNodeName = ref("全部");
+      const depShow = ref(false);
+      // 部门选择器引用
+      const departmentSelector = ref(null);
+
+      function handleConfirm() {}
+      function handleCancel() {
+        depShow.value = false;
+      }
+
+      function getDepListApi(params) {
+        return QueryDeptsApi({ ...params, pageSize: 15, getuser: 1 });
+      }
+
+      // 打开选择器
+      const openDepartmentSelector = () => {
+        depShow.value = true;
+        nextTick(() => {
+          departmentSelector.value.openDialog();
+        });
+      };
+
+      onMounted(() => {
+        nextTick(() => {});
+      });
+    return {
+        initData,
+        scopeNode,
+        chooseType,
+        singleChoice,
+        pageSize,
+        rootNodeName,
+        depShow,
+        departmentSelector,
+        handleConfirm,
+        handleCancel,
+        getDepListApi,
+        openDepartmentSelector,
+    }
+  }
+});
+app.use(ElementPlus);
+app.mount('#appRoot');
+
+
+        
+    </script>
+</html>
+
+
+
+
+

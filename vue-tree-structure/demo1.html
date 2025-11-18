@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="./dist/vueTreeStructure.css">
+        <script src="http://unpkg.com/vue@3"></script>
+        <script src="./dist/vueTreeStructure.umd.js"></script>
+    </head>
+    <body>
+        <div id="appRoot">
+            <tree-selector style="width:800px;margin:100px auto"
+                ref="departmentSelector"
+                :choose-type="chooseType"
+                :single-choice="singleChoice"
+                :page-size="pageSize"
+                :init-data="initData"
+                :scope-node="scopeNode"
+                :root-node-name="rootNodeName"
+                :get-dep-list-api="getDepListApi"
+                v-on:confirm="handleConfirm"
+                v-on:cancel="handleCancel"
+            ></tree-selector>
+        </div>
+    </body>
+    <script setup type="module">
+import { QueryDeptsApi } from "./api/department.js";
+const { ref, onMounted, nextTick } = Vue;
+const { treeMenu,treeSelector } = vueTreeStructure;
+
+const app = Vue.createApp({
+  components: {
+    treeMenu,treeSelector
+  },
+  setup() {
+      const initData = ref([]);
+      const scopeNode = ref(null);
+      const chooseType = ref(3);
+      const singleChoice = ref(false);
+      const pageSize = ref(3);
+      const rootNodeName = ref("全部");
+      // 部门选择器引用
+      const departmentSelector = ref(null);
+
+      function handleConfirm(e) {
+        console.log(e);
+        
+      }
+      function handleCancel() {}
+      function getDepListApi(params) {
+        return QueryDeptsApi({ ...params, pageSize: 15, getuser: 1 });
+      }
+      onMounted(() => {
+        nextTick(() => {
+          departmentSelector.value.openDialog();
+        });
+      });
+    return {
+        initData,
+        scopeNode,
+        chooseType,
+        singleChoice,
+        pageSize,
+        rootNodeName,
+        departmentSelector,
+        handleConfirm,
+        handleCancel,
+        getDepListApi,
+    }
+  }
+});
+app.mount('#appRoot');
+    </script>
+</html>

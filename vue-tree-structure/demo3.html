@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="./dist/vueTreeStructure.css">
+        <script src="http://unpkg.com/vue@3"></script>
+        <script src="./dist/vueTreeStructure.umd.js"></script>
+    </head>
+    <body>
+        <div id="appRoot">
+            <tree-menu
+                :mode="1"
+                :show-level="1"
+                :init-data="initData"
+                :page-size="3"
+                :get-dep-list-api="getDepListApi"
+                v-on:update:selected="handleSelectionChange"
+                style="height: calc(100vh - 130px);width:800px;"
+            ></tree-menu>
+        </div>
+    </body>
+    <script setup type="module">
+import { QueryDeptsApi, editDeptApi, addDeptApi, delDeptApi  } from "./api/department.js";
+const { ref, onMounted, nextTick,reactive  } = Vue;
+const { treeMenu,treeSelector } = vueTreeStructure;
+
+const app = Vue.createApp({
+  components: {
+    treeMenu,treeSelector
+  },
+  setup() {
+    const initData = ref([{ PK_Guid: "100007", Name: "法务部", Level: 1 }]);
+ 
+    // selected
+    function handleSelectionChange(node) {
+      console.log(node);
+    }
+    function getDepListApi(params) {
+      return QueryDeptsApi({ ...params, pageSize: 15, getuser: 1 });
+    }
+    onMounted(() => {});
+    return {
+      initData,
+      handleSelectionChange,
+      getDepListApi,
+    }
+  }
+});
+app.mount('#appRoot');
+    </script>
+</html>
